@@ -10,6 +10,7 @@ abstract class AppDatabase: RoomDatabase() {
 
     abstract fun studentDao(): StudentDao
     abstract fun groupDao(): GroupDao
+    abstract fun markDao(): MarkDao
 
     companion object {
         @Volatile
