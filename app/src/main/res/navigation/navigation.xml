@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/navigation"
+    app:startDestination="@id/mainFragment">
+
+    <fragment
+        android:id="@+id/AllGroupsFragment"
+        android:name="com.example.asystentnauczyciela.view.GroupFragment"
+        android:label="fragment_group"
+        tools:layout="@layout/fragment_all_groups" >
+        <action
+            android:id="@+id/action_AllGroupsFragment_to_studentsInGroupFragment"
+            app:destination="@id/studentsInGroupFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/AllStudentsFragment"
+        android:name="com.example.asystentnauczyciela.view.StudentsFragment"
+        android:label="fragment_students"
+        tools:layout="@layout/fragment_all_students" >
+        <action
+            android:id="@+id/action_AllStudentsFragment_to_studentGroupsFragment"
+            app:destination="@id/studentGroupsFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/mainFragment"
+        android:name="com.example.asystentnauczyciela.view.MainFragment"
+        android:label="fragment_main"
+        tools:layout="@layout/fragment_main" >
+        <action
+            android:id="@+id/action_mainFragment_to_AllGroupsFragment"
+            app:destination="@id/AllGroupsFragment" />
+        <action
+            android:id="@+id/action_mainFragment_to_AllStudentsFragment"
+            app:destination="@id/AllStudentsFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/markFragment"
+        android:name="com.example.asystentnauczyciela.view.MarkFragment"
+        android:label="fragment_mark"
+        tools:layout="@layout/fragment_mark" />
+    <fragment
+        android:id="@+id/studentGroupsFragment"
+        android:name="com.example.asystentnauczyciela.view.StudentGroupsFragment"
+        android:label="fragment_student_groups"
+        tools:layout="@layout/fragment_student_groups" >
+        <action
+            android:id="@+id/action_studentGroupsFragment_to_markFragment"
+            app:destination="@id/markFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/studentsInGroupFragment"
+        android:name="com.example.asystentnauczyciela.view.StudentsInGroupFragment"
+        android:label="fragment_students_in_group"
+        tools:layout="@layout/fragment_students_in_group" >
+        <action
+            android:id="@+id/action_studentsInGroupFragment_to_markFragment"
+            app:destination="@id/markFragment" />
+    </fragment>
+</navigation>
