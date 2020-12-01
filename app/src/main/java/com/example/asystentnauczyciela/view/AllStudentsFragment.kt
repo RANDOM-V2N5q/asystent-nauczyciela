@@ -1,17 +1,26 @@
 package com.example.asystentnauczyciela.view
 
 import android.os.Bundle
+import android.text.TextUtils
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
+import androidx.lifecycle.ViewModelProvider
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.example.asystentnauczyciela.R
+import com.example.asystentnauczyciela.model.Student
+import com.example.asystentnauczyciela.view_model.StudentListAdapter
+import com.example.asystentnauczyciela.view_model.StudentViewModel
+import kotlinx.android.synthetic.main.fragment_all_students.*
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
 private const val ARG_PARAM1 = "param1"
 private const val ARG_PARAM2 = "param2"
-
+private lateinit var studentViewModel: StudentViewModel
 /**
  * A simple [Fragment] subclass.
  * Use the [StudentsFragment.newInstance] factory method to
@@ -21,6 +30,9 @@ class StudentsFragment : Fragment() {
     // TODO: Rename and change types of parameters
     private var param1: String? = null
     private var param2: String? = null
+    private lateinit var myAdapter: StudentListAdapter
+    private lateinit var myLayoutManager: LinearLayoutManager
+    private lateinit var recyclerView: RecyclerView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -34,8 +46,45 @@ class StudentsFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+        studentViewModel = ViewModelProvider(requireActivity()).get(StudentViewModel::class.java)
+
+        myAdapter = StudentListAdapter(studentViewModel.allStudent, studentViewModel)
+        myLayoutManager = LinearLayoutManager(context)
+
+        studentViewModel.allStudent.observe(viewLifecycleOwner, {
+            myAdapter.notifyDataSetChanged()
+        })
+
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_all_students, container, false)
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        recyclerView = recyclerViewStudents.apply {
+            this.layoutManager = myLayoutManager
+            this.adapter = myAdapter
+        }
+
+        buttonAddStudent.setOnClickListener { addStudent() }
+    }
+
+    private fun addStudent() {
+        val firstName = editTextFirstName.text.toString()
+        val lastName = editTextLastName.text.toString()
+        editTextFirstName.setText("")
+        editTextLastName.setText("")
+
+        if(inputValidation(firstName, lastName)) {
+            val student = Student(0, firstName, lastName)
+            studentViewModel.addStudent(student)
+            Toast.makeText(requireContext(), "Student dodany", Toast.LENGTH_LONG).show()
+        }
+    }
+
+    private fun inputValidation(firstName: String, lastName: String): Boolean {
+        return !(TextUtils.isEmpty(firstName) && TextUtils.isEmpty(lastName) )
     }
 
     companion object {
