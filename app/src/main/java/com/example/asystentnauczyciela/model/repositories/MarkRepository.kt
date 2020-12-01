@@ -13,7 +13,7 @@ class MarkRepository(private val markDao: MarkDao) {
         markDao.deleteMark(mark)
     }
 
-    suspend fun getStudentMarksFromGroup(studentId: Int, groupId: Int) {
+    fun getStudentMarksFromGroup(studentId: Int, groupId: Int) {
         markDao.getStudentMarksFromGroup(studentId, groupId)
     }
 }

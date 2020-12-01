@@ -16,5 +16,5 @@ interface MarkDao {
     suspend fun deleteMark(mark: Mark)
 
     @Query("SELECT * FROM mark_table WHERE student_id = :studentId and group_id = :groupId")
-    suspend fun getStudentMarksFromGroup(studentId: Int, groupId: Int): LiveData<List<Mark>>
+    fun getStudentMarksFromGroup(studentId: Int, groupId: Int): LiveData<List<Mark>>
 }

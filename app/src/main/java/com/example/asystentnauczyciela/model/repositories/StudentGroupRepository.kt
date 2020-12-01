@@ -13,11 +13,11 @@ class StudentGroupRepository(private val studentGroupDao: StudentGroupDao) {
         studentGroupDao.deleteStudentGroup(studentGroup)
     }
 
-    suspend fun getStudentsInGroup(groupId: Int) {
+    fun getStudentsInGroup(groupId: Int) {
         studentGroupDao.getStudentsInGroup(groupId)
     }
 
-    suspend fun getStudentGroups(studentId: Int) {
+    fun getStudentGroups(studentId: Int) {
         studentGroupDao.getStudentGroups(studentId)
     }
 }
