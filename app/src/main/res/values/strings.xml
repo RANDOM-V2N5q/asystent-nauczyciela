@@ -7,4 +7,5 @@
     <string name="students_list">Lista studentów</string>
     <string name="report">Raport</string>
     <string name="add">Dodaj</string>
+    <string name="delete">Usuń</string>
 </resources>

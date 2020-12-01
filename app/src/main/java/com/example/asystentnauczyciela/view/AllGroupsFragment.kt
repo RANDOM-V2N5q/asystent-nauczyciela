@@ -48,7 +48,7 @@ class GroupFragment : Fragment() {
     ): View? {
         groupViewModel = ViewModelProvider(requireActivity()).get(GroupViewModel::class.java)
 
-        myAdapter = GroupListAdapter(groupViewModel.allGroups)
+        myAdapter = GroupListAdapter(groupViewModel.allGroups, groupViewModel)
         myLayoutManager = LinearLayoutManager(context)
 
         groupViewModel.allGroups.observe(viewLifecycleOwner, {
