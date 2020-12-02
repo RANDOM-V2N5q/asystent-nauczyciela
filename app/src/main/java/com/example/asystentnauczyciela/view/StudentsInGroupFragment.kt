@@ -1,6 +1,7 @@
 package com.example.asystentnauczyciela.view
 
 import android.os.Bundle
+import android.util.Log
 import android.view.*
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
@@ -47,11 +48,16 @@ class StudentsInGroupFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         viewModel = ViewModelProvider(requireActivity()).get(StudentsInGroupViewModel::class.java)
-
-        myAdapter = StudentInGroupListAdapter(viewModel.studentsInGroup(args.groupId), args.groupId)
+        viewModel.studentsInGroup(args.groupId)
+        
+        myAdapter = StudentInGroupListAdapter(viewModel.studentsInGroup, args.groupId)
         myLayoutManager = LinearLayoutManager(context)
 
         setHasOptionsMenu(true)
+
+        viewModel.studentsInGroup.observe(viewLifecycleOwner, {
+            myAdapter.notifyDataSetChanged()
+        })
 
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_students_in_group, container, false)

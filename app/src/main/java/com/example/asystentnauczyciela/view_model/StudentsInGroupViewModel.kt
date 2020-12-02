@@ -9,6 +9,7 @@ import com.example.asystentnauczyciela.model.repositories.StudentGroupRepository
 
 class StudentsInGroupViewModel(application: Application): AndroidViewModel(application) {
 
+    lateinit var studentsInGroup: LiveData<List<Student>>
     private val studentGroupRepository: StudentGroupRepository
 
     init {
@@ -16,7 +17,8 @@ class StudentsInGroupViewModel(application: Application): AndroidViewModel(appli
         studentGroupRepository = StudentGroupRepository(studentGroupDao)
     }
 
-    fun studentsInGroup(groupId: Int): LiveData<List<Student>> {
-        return studentGroupRepository.getStudentsInGroup(groupId)
+    //TODO: XD
+    fun studentsInGroup(groupId: Int) {
+        studentsInGroup = studentGroupRepository.getStudentsInGroup(groupId)
     }
 }
