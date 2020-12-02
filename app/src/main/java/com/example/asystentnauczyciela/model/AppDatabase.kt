@@ -8,6 +8,7 @@ import androidx.room.TypeConverters
 import com.example.asystentnauczyciela.model.dao_interfaces.GroupDao
 import com.example.asystentnauczyciela.model.dao_interfaces.MarkDao
 import com.example.asystentnauczyciela.model.dao_interfaces.StudentDao
+import com.example.asystentnauczyciela.model.dao_interfaces.StudentGroupDao
 
 @Database(entities = [Student::class, Group::class, Mark::class, StudentGroup::class], version = 1, exportSchema = false)
 @TypeConverters(Converters::class)
@@ -16,6 +17,7 @@ abstract class AppDatabase: RoomDatabase() {
     abstract fun studentDao(): StudentDao
     abstract fun groupDao(): GroupDao
     abstract fun markDao(): MarkDao
+    abstract fun studentGroupDao(): StudentGroupDao
 
     companion object {
         @Volatile
