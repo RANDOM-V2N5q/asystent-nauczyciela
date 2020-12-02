@@ -57,5 +57,13 @@
         <action
             android:id="@+id/action_studentsInGroupFragment_to_markFragment"
             app:destination="@id/markFragment" />
+        <action
+            android:id="@+id/action_studentsInGroupFragment_to_addStudentToGroupFragment"
+            app:destination="@id/addStudentToGroupFragment" />
     </fragment>
+    <fragment
+        android:id="@+id/addStudentToGroupFragment"
+        android:name="com.example.asystentnauczyciela.view.AddStudentToGroupFragment"
+        android:label="fragment_add_student_to_group"
+        tools:layout="@layout/fragment_add_student_to_group" />
 </navigation>
