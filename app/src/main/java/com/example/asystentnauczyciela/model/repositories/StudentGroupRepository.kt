@@ -11,8 +11,8 @@ class StudentGroupRepository(private val studentGroupDao: StudentGroupDao) {
         studentGroupDao.addStudentGroup(studentGroup)
     }
 
-    suspend fun delete(studentGroup: StudentGroup) {
-        studentGroupDao.deleteStudentGroup(studentGroup)
+    suspend fun delete(studentId: Int, groupId: Int) {
+        studentGroupDao.deleteStudentGroupQ(studentId, groupId)
     }
 
     fun getStudentsInGroup(groupId: Int): LiveData<List<Student>> {
