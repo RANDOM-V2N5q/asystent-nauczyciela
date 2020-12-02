@@ -65,5 +65,10 @@
         android:id="@+id/addStudentToGroupFragment"
         android:name="com.example.asystentnauczyciela.view.AddStudentToGroupFragment"
         android:label="fragment_add_student_to_group"
-        tools:layout="@layout/fragment_add_student_to_group" />
+        tools:layout="@layout/fragment_add_student_to_group" >
+        <argument
+            android:name="groupId"
+            app:argType="integer"
+            android:defaultValue="-1" />
+    </fragment>
 </navigation>
