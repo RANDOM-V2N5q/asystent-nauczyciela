@@ -9,7 +9,7 @@ import com.example.asystentnauczyciela.model.Student
 import com.example.asystentnauczyciela.model.repositories.StudentRepository
 import kotlinx.coroutines.launch
 
-class StudentViewModel(application: Application): AndroidViewModel(application) {
+class AllStudentsViewModel(application: Application): AndroidViewModel(application) {
 
     val allStudent: LiveData<List<Student>>
     private val studentRepository: StudentRepository

@@ -1,7 +1,7 @@
 package com.example.asystentnauczyciela.model.repositories
 
 import com.example.asystentnauczyciela.model.StudentGroup
-import com.example.asystentnauczyciela.model.StudentGroupDao
+import com.example.asystentnauczyciela.model.dao_interfaces.StudentGroupDao
 
 class StudentGroupRepository(private val studentGroupDao: StudentGroupDao) {
 

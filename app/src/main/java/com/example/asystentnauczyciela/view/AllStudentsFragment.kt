@@ -12,15 +12,15 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.asystentnauczyciela.R
 import com.example.asystentnauczyciela.model.Student
-import com.example.asystentnauczyciela.view_model.StudentListAdapter
-import com.example.asystentnauczyciela.view_model.StudentViewModel
+import com.example.asystentnauczyciela.view_model.Adapters.StudentListAdapter
+import com.example.asystentnauczyciela.view_model.AllStudentsViewModel
 import kotlinx.android.synthetic.main.fragment_all_students.*
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
 private const val ARG_PARAM1 = "param1"
 private const val ARG_PARAM2 = "param2"
-private lateinit var studentViewModel: StudentViewModel
+private lateinit var studentViewModel: AllStudentsViewModel
 /**
  * A simple [Fragment] subclass.
  * Use the [StudentsFragment.newInstance] factory method to
@@ -46,7 +46,7 @@ class StudentsFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        studentViewModel = ViewModelProvider(requireActivity()).get(StudentViewModel::class.java)
+        studentViewModel = ViewModelProvider(requireActivity()).get(AllStudentsViewModel::class.java)
 
         myAdapter = StudentListAdapter(studentViewModel.allStudent, studentViewModel)
         myLayoutManager = LinearLayoutManager(context)

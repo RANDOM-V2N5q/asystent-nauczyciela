@@ -9,7 +9,7 @@ import com.example.asystentnauczyciela.model.Group
 import com.example.asystentnauczyciela.model.repositories.GroupRepository
 import kotlinx.coroutines.launch
 
-class GroupViewModel(application: Application): AndroidViewModel(application) {
+class AllGroupsViewModel(application: Application): AndroidViewModel(application) {
 
     val allGroups: LiveData<List<Group>>
     private val groupRepository: GroupRepository

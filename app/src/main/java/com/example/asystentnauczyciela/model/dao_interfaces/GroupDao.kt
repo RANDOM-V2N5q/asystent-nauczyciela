@@ -1,10 +1,11 @@
-package com.example.asystentnauczyciela.model
+package com.example.asystentnauczyciela.model.dao_interfaces
 
 import androidx.lifecycle.LiveData
 import androidx.room.Dao
 import androidx.room.Delete
 import androidx.room.Insert
 import androidx.room.Query
+import com.example.asystentnauczyciela.model.Group
 
 @Dao
 interface GroupDao {

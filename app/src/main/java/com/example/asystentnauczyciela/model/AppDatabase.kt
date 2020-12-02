@@ -5,6 +5,9 @@ import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
 import androidx.room.TypeConverters
+import com.example.asystentnauczyciela.model.dao_interfaces.GroupDao
+import com.example.asystentnauczyciela.model.dao_interfaces.MarkDao
+import com.example.asystentnauczyciela.model.dao_interfaces.StudentDao
 
 @Database(entities = [Student::class, Group::class, Mark::class, StudentGroup::class], version = 1, exportSchema = false)
 @TypeConverters(Converters::class)

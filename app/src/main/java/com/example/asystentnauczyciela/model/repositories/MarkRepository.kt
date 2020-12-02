@@ -1,7 +1,7 @@
 package com.example.asystentnauczyciela.model.repositories
 
 import com.example.asystentnauczyciela.model.Mark
-import com.example.asystentnauczyciela.model.MarkDao
+import com.example.asystentnauczyciela.model.dao_interfaces.MarkDao
 
 class MarkRepository(private val markDao: MarkDao) {
 

@@ -12,15 +12,15 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.asystentnauczyciela.R
 import com.example.asystentnauczyciela.model.Group
-import com.example.asystentnauczyciela.view_model.GroupListAdapter
-import com.example.asystentnauczyciela.view_model.GroupViewModel
+import com.example.asystentnauczyciela.view_model.Adapters.GroupListAdapter
+import com.example.asystentnauczyciela.view_model.AllGroupsViewModel
 import kotlinx.android.synthetic.main.fragment_all_groups.*
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
 private const val ARG_PARAM1 = "param1"
 private const val ARG_PARAM2 = "param2"
-private lateinit var groupViewModel: GroupViewModel
+private lateinit var groupViewModel: AllGroupsViewModel
 /**
  * A simple [Fragment] subclass.
  * Use the [GroupFragment.newInstance] factory method to
@@ -46,7 +46,7 @@ class GroupFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        groupViewModel = ViewModelProvider(requireActivity()).get(GroupViewModel::class.java)
+        groupViewModel = ViewModelProvider(requireActivity()).get(AllGroupsViewModel::class.java)
 
         myAdapter = GroupListAdapter(groupViewModel.allGroups, groupViewModel)
         myLayoutManager = LinearLayoutManager(context)

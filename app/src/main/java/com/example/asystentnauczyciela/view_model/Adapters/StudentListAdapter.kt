@@ -1,4 +1,4 @@
-package com.example.asystentnauczyciela.view_model
+package com.example.asystentnauczyciela.view_model.Adapters
 
 import android.view.LayoutInflater
 import android.view.View
@@ -9,8 +9,9 @@ import androidx.lifecycle.LiveData
 import androidx.recyclerview.widget.RecyclerView
 import com.example.asystentnauczyciela.R
 import com.example.asystentnauczyciela.model.Student
+import com.example.asystentnauczyciela.view_model.AllStudentsViewModel
 
-class StudentListAdapter(var students: LiveData<List<Student>>, var studentViewModel: StudentViewModel): RecyclerView.Adapter<StudentListAdapter.StudentHolder>() {
+class StudentListAdapter(var students: LiveData<List<Student>>, var studentViewModel: AllStudentsViewModel): RecyclerView.Adapter<StudentListAdapter.StudentHolder>() {
 
     inner class StudentHolder(view: View): RecyclerView.ViewHolder(view)
 

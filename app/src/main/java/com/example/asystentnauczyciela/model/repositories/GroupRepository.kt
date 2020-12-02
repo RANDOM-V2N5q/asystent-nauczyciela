@@ -2,7 +2,7 @@ package com.example.asystentnauczyciela.model.repositories
 
 import androidx.lifecycle.LiveData
 import com.example.asystentnauczyciela.model.Group
-import com.example.asystentnauczyciela.model.GroupDao
+import com.example.asystentnauczyciela.model.dao_interfaces.GroupDao
 
 class GroupRepository(private val groupDao: GroupDao) {
 

@@ -1,7 +1,5 @@
-package com.example.asystentnauczyciela.view_model
+package com.example.asystentnauczyciela.view_model.Adapters
 
-import android.app.Activity
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -11,8 +9,9 @@ import androidx.lifecycle.LiveData
 import androidx.recyclerview.widget.RecyclerView
 import com.example.asystentnauczyciela.R
 import com.example.asystentnauczyciela.model.Group
+import com.example.asystentnauczyciela.view_model.AllGroupsViewModel
 
-class GroupListAdapter(var groups: LiveData<List<Group>>, var groupViewModel: GroupViewModel): RecyclerView.Adapter<GroupListAdapter.GroupHolder>() {
+class GroupListAdapter(var groups: LiveData<List<Group>>, var groupViewModel: AllGroupsViewModel): RecyclerView.Adapter<GroupListAdapter.GroupHolder>() {
 
     inner class GroupHolder(view: View): RecyclerView.ViewHolder(view)
 
