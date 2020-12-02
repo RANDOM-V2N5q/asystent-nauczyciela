@@ -39,7 +39,16 @@
         android:id="@+id/markFragment"
         android:name="com.example.asystentnauczyciela.view.MarkFragment"
         android:label="fragment_mark"
-        tools:layout="@layout/fragment_mark" />
+        tools:layout="@layout/fragment_mark" >
+        <argument
+            android:name="groupId"
+            app:argType="integer"
+            android:defaultValue="-1" />
+        <argument
+            android:name="studentId"
+            app:argType="integer"
+            android:defaultValue="-1" />
+    </fragment>
     <fragment
         android:id="@+id/studentGroupsFragment"
         android:name="com.example.asystentnauczyciela.view.StudentGroupsFragment"
@@ -60,12 +69,29 @@
         <action
             android:id="@+id/action_studentsInGroupFragment_to_addStudentToGroupFragment"
             app:destination="@id/addStudentToGroupFragment" />
+        <argument
+            android:name="groupId"
+            app:argType="integer"
+            android:defaultValue="-1" />
+        <action
+            android:id="@+id/action_studentsInGroupFragment_to_deleteStudentsFromGroupFragment"
+            app:destination="@id/deleteStudentsFromGroupFragment" />
     </fragment>
     <fragment
         android:id="@+id/addStudentToGroupFragment"
         android:name="com.example.asystentnauczyciela.view.AddStudentToGroupFragment"
         android:label="fragment_add_student_to_group"
         tools:layout="@layout/fragment_add_student_to_group" >
+        <argument
+            android:name="groupId"
+            app:argType="integer"
+            android:defaultValue="-1" />
+    </fragment>
+    <fragment
+        android:id="@+id/deleteStudentsFromGroupFragment"
+        android:name="com.example.asystentnauczyciela.view.DeleteStudentsFromGroupFragment"
+        android:label="fragment_delete_students_from_group"
+        tools:layout="@layout/fragment_delete_students_from_group" >
         <argument
             android:name="groupId"
             app:argType="integer"
