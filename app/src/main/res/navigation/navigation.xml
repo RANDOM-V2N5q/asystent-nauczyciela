@@ -12,7 +12,11 @@
         tools:layout="@layout/fragment_all_groups" >
         <action
             android:id="@+id/action_AllGroupsFragment_to_studentsInGroupFragment"
-            app:destination="@id/studentsInGroupFragment" />
+            app:destination="@id/studentsInGroupFragment"
+            app:enterAnim="@anim/from_right"
+            app:exitAnim="@anim/to_left"
+            app:popEnterAnim="@anim/from_left"
+            app:popExitAnim="@anim/to_right" />
     </fragment>
     <fragment
         android:id="@+id/AllStudentsFragment"
@@ -21,7 +25,11 @@
         tools:layout="@layout/fragment_all_students" >
         <action
             android:id="@+id/action_AllStudentsFragment_to_studentGroupsFragment"
-            app:destination="@id/studentGroupsFragment" />
+            app:destination="@id/studentGroupsFragment"
+            app:enterAnim="@anim/from_right"
+            app:exitAnim="@anim/to_left"
+            app:popEnterAnim="@anim/from_left"
+            app:popExitAnim="@anim/to_right" />
     </fragment>
     <fragment
         android:id="@+id/mainFragment"
@@ -30,10 +38,18 @@
         tools:layout="@layout/fragment_main" >
         <action
             android:id="@+id/action_mainFragment_to_AllGroupsFragment"
-            app:destination="@id/AllGroupsFragment" />
+            app:destination="@id/AllGroupsFragment"
+            app:enterAnim="@anim/from_right"
+            app:exitAnim="@anim/to_left"
+            app:popEnterAnim="@anim/from_left"
+            app:popExitAnim="@anim/to_right" />
         <action
             android:id="@+id/action_mainFragment_to_AllStudentsFragment"
-            app:destination="@id/AllStudentsFragment" />
+            app:destination="@id/AllStudentsFragment"
+            app:enterAnim="@anim/from_right"
+            app:exitAnim="@anim/to_left"
+            app:popEnterAnim="@anim/from_left"
+            app:popExitAnim="@anim/to_right" />
     </fragment>
     <fragment
         android:id="@+id/markFragment"
@@ -56,7 +72,11 @@
         tools:layout="@layout/fragment_student_groups" >
         <action
             android:id="@+id/action_studentGroupsFragment_to_markFragment"
-            app:destination="@id/markFragment" />
+            app:destination="@id/markFragment"
+            app:enterAnim="@anim/from_right"
+            app:exitAnim="@anim/to_left"
+            app:popEnterAnim="@anim/from_left"
+            app:popExitAnim="@anim/to_right"/>
         <argument
             android:name="studentId"
             app:argType="integer"
@@ -69,17 +89,29 @@
         tools:layout="@layout/fragment_students_in_group" >
         <action
             android:id="@+id/action_studentsInGroupFragment_to_markFragment"
-            app:destination="@id/markFragment" />
+            app:destination="@id/markFragment"
+            app:enterAnim="@anim/from_right"
+            app:exitAnim="@anim/to_left"
+            app:popEnterAnim="@anim/from_left"
+            app:popExitAnim="@anim/to_right" />
         <action
             android:id="@+id/action_studentsInGroupFragment_to_addStudentToGroupFragment"
-            app:destination="@id/addStudentToGroupFragment" />
+            app:destination="@id/addStudentToGroupFragment"
+            app:enterAnim="@anim/from_right"
+            app:exitAnim="@anim/to_left"
+            app:popEnterAnim="@anim/from_left"
+            app:popExitAnim="@anim/to_right" />
         <argument
             android:name="groupId"
             app:argType="integer"
             android:defaultValue="-1" />
         <action
             android:id="@+id/action_studentsInGroupFragment_to_deleteStudentsFromGroupFragment"
-            app:destination="@id/deleteStudentsFromGroupFragment" />
+            app:destination="@id/deleteStudentsFromGroupFragment"
+            app:enterAnim="@anim/from_right"
+            app:exitAnim="@anim/to_left"
+            app:popEnterAnim="@anim/from_left"
+            app:popExitAnim="@anim/to_right" />
     </fragment>
     <fragment
         android:id="@+id/addStudentToGroupFragment"
