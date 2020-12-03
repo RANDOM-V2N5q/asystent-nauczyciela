@@ -66,6 +66,7 @@ class GroupFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        activity?.title = getString(R.string.groups_list)
 
         recyclerView = recyclerViewGroups.apply {
             this.layoutManager = myLayoutManager

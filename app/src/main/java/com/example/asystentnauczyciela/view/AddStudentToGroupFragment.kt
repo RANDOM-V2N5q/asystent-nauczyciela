@@ -65,6 +65,7 @@ class AddStudentToGroupFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        activity?.title = getString(R.string.add_student_to_group)
 
         recyclerView = recyclerViewSelectStudent.apply {
             this.layoutManager = myLayoutManager

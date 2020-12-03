@@ -63,6 +63,7 @@ class DeleteStudentsFromGroupFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        activity?.title = getString(R.string.delete_student_from_group)
 
         recyclerView = recyclerViewSelectStudent.apply {
             this.layoutManager = myLayoutManager

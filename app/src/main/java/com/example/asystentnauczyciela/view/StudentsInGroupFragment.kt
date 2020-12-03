@@ -65,6 +65,7 @@ class StudentsInGroupFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        activity?.title = getString(R.string.students_in_group)
 
         recyclerView = recyclerViewStudentsInGroup.apply {
             this.layoutManager = myLayoutManager

@@ -42,6 +42,8 @@ class MainFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        activity?.title = getString(R.string.app_name)
+
         buttonGroupsList.setOnClickListener{ view->view.findNavController().navigate(R.id.action_mainFragment_to_AllGroupsFragment) }
         buttonStudentsList.setOnClickListener{ view->view.findNavController().navigate(R.id.action_mainFragment_to_AllStudentsFragment) }
     }

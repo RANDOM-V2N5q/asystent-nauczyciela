@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">AsystentNauczyciela</string>
+    <string name="app_name">Asystent Nauczyciela</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
 
@@ -11,11 +11,16 @@
     <string name="temp">Temporary text</string>
     <string name="delete_group">Usuń grupę</string>
     <string name="delete_student">Usuń studenta</string>
+    <string name="delete_student_from_group">Usuń studenta z grupy</string>
     <string name="add_group">Dodaj grupę</string>
     <string name="add_student">Dodaj studenta</string>
+    <string name="add_student_to_group">Dodaj studenta do grupy</string>
     <string name="add_mark">Dodaj ocenę</string>
     <string name="group_name">Nazwa grupy</string>
     <string name="first_name">Imię</string>
     <string name="last_name">Nazwisko</string>
     <string name="mark">Ocena</string>
+    <string name="students_in_group">Studenci w grupie</string>
+    <string name="student_marks">Oceny studenta</string>
+    <string name="student_groups">Grupy studenta</string>
 </resources>

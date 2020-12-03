@@ -72,6 +72,7 @@ class MarkFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        activity?.title = getString(R.string.student_marks)
 
         recyclerView = recyclerViewMark.apply {
             this.layoutManager = myLayoutManager
