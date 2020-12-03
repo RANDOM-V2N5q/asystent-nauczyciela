@@ -4,6 +4,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
+import android.widget.ImageButton
 import android.widget.TextView
 import androidx.lifecycle.LiveData
 import androidx.navigation.findNavController
@@ -26,7 +27,7 @@ class GroupListAdapter(var groups: LiveData<List<Group>>, var groupViewModel: Al
 
     override fun onBindViewHolder(holder: GroupHolder, position: Int) {
         var groupName = holder.itemView.findViewById<TextView>(R.id.textViewGroupName)
-        var deleteButton = holder.itemView.findViewById<Button>(R.id.buttonDeleteGroup)
+        var deleteButton = holder.itemView.findViewById<ImageButton>(R.id.buttonDeleteGroup)
 
         groupName.text = groups.value?.get(position)?.name.toString()
         deleteButton.setOnClickListener { groupViewModel.deleteGroup(groups.value?.get(position)!!) }
