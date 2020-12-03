@@ -13,7 +13,9 @@
     <string name="delete_student">Usuń studenta</string>
     <string name="add_group">Dodaj grupę</string>
     <string name="add_student">Dodaj studenta</string>
+    <string name="add_mark">Dodaj ocenę</string>
     <string name="group_name">Nazwa grupy</string>
     <string name="first_name">Imię</string>
     <string name="last_name">Nazwisko</string>
+    <string name="mark">Ocena</string>
 </resources>

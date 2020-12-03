@@ -2,13 +2,18 @@ package com.example.asystentnauczyciela.view
 
 import android.os.Bundle
 import android.text.TextUtils
+import android.transition.AutoTransition
+import android.transition.TransitionManager
 import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageButton
+import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.navArgs
+import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.asystentnauczyciela.R
@@ -71,9 +76,21 @@ class MarkFragment : Fragment() {
         recyclerView = recyclerViewMark.apply {
             this.layoutManager = myLayoutManager
             this.adapter = myAdapter
+            addItemDecoration(DividerItemDecoration(this.context, DividerItemDecoration.VERTICAL))
         }
 
         buttonAddMark.setOnClickListener { addMark() }
+        imageButtonShowMarkInput.setOnClickListener {
+            TransitionManager.beginDelayedTransition(view.findViewById(R.id.constraintLayoutMarks), AutoTransition().setDuration(100))
+            if(view.findViewById<ConstraintLayout>(R.id.constraintLayoutMarkInput).visibility == View.GONE) {
+                view.findViewById<ConstraintLayout>(R.id.constraintLayoutMarkInput).visibility = View.VISIBLE
+                view.findViewById<ImageButton>(R.id.imageButtonShowMarkInput).setImageResource(R.drawable.ic_baseline_keyboard_arrow_down_48)
+            }
+            else {
+                view.findViewById<ConstraintLayout>(R.id.constraintLayoutMarkInput).visibility = View.GONE
+                view.findViewById<ImageButton>(R.id.imageButtonShowMarkInput).setImageResource(R.drawable.ic_baseline_add_circle_48)
+            }
+        }
     }
 
     private fun addMark() {
@@ -81,6 +98,10 @@ class MarkFragment : Fragment() {
             val mark = Mark(0, args.studentId, args.groupId, editTextMarkValue.text.toString().toInt(), Date())
             viewModel.addMark(mark)
         }
+
+        TransitionManager.beginDelayedTransition(view?.findViewById(R.id.constraintLayoutMarks), AutoTransition().setDuration(100))
+        requireView().findViewById<ConstraintLayout>(R.id.constraintLayoutMarkInput).visibility = View.GONE
+        requireView().findViewById<ImageButton>(R.id.imageButtonShowMarkInput).setImageResource(R.drawable.ic_baseline_add_circle_48)
     }
 
     companion object {

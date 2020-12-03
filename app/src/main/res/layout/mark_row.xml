@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="horizontal">
@@ -7,21 +8,34 @@
     <TextView
         android:id="@+id/textViewValue"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         android:layout_weight="1"
-        android:text="TextView" />
+
+        android:gravity="center|start"
+        android:paddingStart="12sp"
+        android:paddingEnd="12sp"
+
+        android:text="@string/temp"
+        android:textSize="16sp" />
 
     <TextView
         android:id="@+id/textViewDate"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         android:layout_weight="1"
-        android:text="TextView" />
 
-    <Button
+        android:gravity="center|start"
+        android:paddingStart="12sp"
+        android:paddingEnd="12sp"
+
+        android:text="@string/temp"
+        android:textSize="16sp" />
+
+    <ImageButton
         android:id="@+id/buttonDeleteMark"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_weight="0.1"
+
+        android:src="@drawable/ic_baseline_delete_48"
         android:text="@string/delete" />
 </LinearLayout>

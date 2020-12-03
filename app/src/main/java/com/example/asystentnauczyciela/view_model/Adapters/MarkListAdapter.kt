@@ -4,6 +4,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
+import android.widget.ImageButton
 import android.widget.TextView
 import androidx.lifecycle.LiveData
 import androidx.recyclerview.widget.RecyclerView
@@ -23,7 +24,7 @@ class MarkListAdapter(var marks: LiveData<List<Mark>>, var viewModel: MarkViewMo
     override fun onBindViewHolder(holder: Holder, position: Int) {
         val markValue = holder.itemView.findViewById<TextView>(R.id.textViewValue)
         val date = holder.itemView.findViewById<TextView>(R.id.textViewDate)
-        val deleteButton = holder.itemView.findViewById<Button>(R.id.buttonDeleteMark)
+        val deleteButton = holder.itemView.findViewById<ImageButton>(R.id.buttonDeleteMark)
 
         markValue.text = marks.value?.get(position)?.value.toString()
         date.text = marks.value?.get(position)?.date.toString()
