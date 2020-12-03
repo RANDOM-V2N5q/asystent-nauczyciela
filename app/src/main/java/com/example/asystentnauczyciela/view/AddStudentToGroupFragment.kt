@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -75,6 +76,7 @@ class AddStudentToGroupFragment : Fragment() {
 
     private fun addSelectedStudent() {
         addStudentToGroupViewModel.addSelectedStudents(args.groupId)
+        findNavController().navigate(R.id.action_addStudentToGroupFragment_to_studentsInGroupFragment)
     }
 
     companion object {

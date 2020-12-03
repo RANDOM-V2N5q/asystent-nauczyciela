@@ -90,6 +90,9 @@
             android:name="groupId"
             app:argType="integer"
             android:defaultValue="-1" />
+        <action
+            android:id="@+id/action_addStudentToGroupFragment_to_studentsInGroupFragment"
+            app:destination="@id/studentsInGroupFragment" />
     </fragment>
     <fragment
         android:id="@+id/deleteStudentsFromGroupFragment"
@@ -100,5 +103,8 @@
             android:name="groupId"
             app:argType="integer"
             android:defaultValue="-1" />
+        <action
+            android:id="@+id/action_deleteStudentsFromGroupFragment_to_studentsInGroupFragment"
+            app:destination="@id/studentsInGroupFragment" />
     </fragment>
 </navigation>

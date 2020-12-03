@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -73,6 +74,7 @@ class DeleteStudentsFromGroupFragment : Fragment() {
 
     private fun deleteStudentFromGroup() {
         viewModel.deleteSelectedStudents(args.groupId)
+        findNavController().navigate(R.id.action_deleteStudentsFromGroupFragment_to_studentsInGroupFragment)
     }
 
     companion object {
