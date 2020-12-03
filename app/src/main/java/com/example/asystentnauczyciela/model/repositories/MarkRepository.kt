@@ -1,5 +1,6 @@
 package com.example.asystentnauczyciela.model.repositories
 
+import androidx.lifecycle.LiveData
 import com.example.asystentnauczyciela.model.Mark
 import com.example.asystentnauczyciela.model.dao_interfaces.MarkDao
 
@@ -13,7 +14,7 @@ class MarkRepository(private val markDao: MarkDao) {
         markDao.deleteMark(mark)
     }
 
-    fun getStudentMarksFromGroup(studentId: Int, groupId: Int) {
-        markDao.getStudentMarksFromGroup(studentId, groupId)
+    fun getStudentMarksFromGroup(studentId: Int, groupId: Int): LiveData<List<Mark>> {
+        return markDao.getStudentMarksFromGroup(studentId, groupId)
     }
 }
