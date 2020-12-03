@@ -2,12 +2,17 @@ package com.example.asystentnauczyciela.view
 
 import android.os.Bundle
 import android.text.TextUtils
+import android.transition.AutoTransition
+import android.transition.TransitionManager
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageButton
 import android.widget.Toast
+import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.lifecycle.ViewModelProvider
+import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.asystentnauczyciela.R
@@ -62,12 +67,24 @@ class StudentsFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        recyclerView = recyclerViewStudents.apply {
+        recyclerView = recyclerViewAllStudents.apply {
             this.layoutManager = myLayoutManager
             this.adapter = myAdapter
+            addItemDecoration(DividerItemDecoration(this.context, DividerItemDecoration.VERTICAL))
         }
 
         buttonAddStudent.setOnClickListener { addStudent() }
+        imageButtonShowStudentInput.setOnClickListener {
+            TransitionManager.beginDelayedTransition(view.findViewById(R.id.constraintLayoutAllStudents), AutoTransition().setDuration(100))
+            if(view.findViewById<ConstraintLayout>(R.id.constraintLayoutStudentInput).visibility == View.GONE) {
+                view.findViewById<ConstraintLayout>(R.id.constraintLayoutStudentInput).visibility = View.VISIBLE
+                view.findViewById<ImageButton>(R.id.imageButtonShowStudentInput).setImageResource(R.drawable.ic_baseline_keyboard_arrow_down_48)
+            }
+            else {
+                view.findViewById<ConstraintLayout>(R.id.constraintLayoutStudentInput).visibility = View.GONE
+                view.findViewById<ImageButton>(R.id.imageButtonShowStudentInput).setImageResource(R.drawable.ic_baseline_add_circle_48)
+            }
+        }
     }
 
     private fun addStudent() {
@@ -81,6 +98,10 @@ class StudentsFragment : Fragment() {
             studentViewModel.addStudent(student)
             Toast.makeText(requireContext(), "Student dodany", Toast.LENGTH_LONG).show()
         }
+
+        TransitionManager.beginDelayedTransition(view?.findViewById(R.id.constraintLayoutAllStudents), AutoTransition().setDuration(100))
+        requireView().findViewById<ConstraintLayout>(R.id.constraintLayoutStudentInput).visibility = View.GONE
+        requireView().findViewById<ImageButton>(R.id.imageButtonShowStudentInput).setImageResource(R.drawable.ic_baseline_add_circle_48)
     }
 
     private fun inputValidation(firstName: String, lastName: String): Boolean {

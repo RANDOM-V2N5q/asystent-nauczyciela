@@ -4,6 +4,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
+import android.widget.ImageButton
 import android.widget.TextView
 import androidx.lifecycle.LiveData
 import androidx.navigation.findNavController
@@ -25,7 +26,7 @@ class StudentListAdapter(var students: LiveData<List<Student>>, var studentViewM
     override fun onBindViewHolder(holder: StudentHolder, position: Int) {
         var firstName = holder.itemView.findViewById<TextView>(R.id.textViewFirstName)
         var lastName = holder.itemView.findViewById<TextView>(R.id.textViewLastName)
-        var deleteButton = holder.itemView.findViewById<Button>(R.id.buttonDeleteStudent)
+        var deleteButton = holder.itemView.findViewById<ImageButton>(R.id.buttonDeleteStudent)
 
         firstName.text = students.value?.get(position)?.firstName.toString()
         lastName.text = students.value?.get(position)?.lastName.toString()
