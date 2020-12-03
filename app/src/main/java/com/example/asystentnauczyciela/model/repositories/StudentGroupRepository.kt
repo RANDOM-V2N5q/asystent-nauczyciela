@@ -1,6 +1,7 @@
 package com.example.asystentnauczyciela.model.repositories
 
 import androidx.lifecycle.LiveData
+import com.example.asystentnauczyciela.model.Group
 import com.example.asystentnauczyciela.model.Student
 import com.example.asystentnauczyciela.model.StudentGroup
 import com.example.asystentnauczyciela.model.dao_interfaces.StudentGroupDao
@@ -19,7 +20,7 @@ class StudentGroupRepository(private val studentGroupDao: StudentGroupDao) {
         return studentGroupDao.getStudentsInGroup(groupId)
     }
 
-    fun getStudentGroups(studentId: Int) {
-        studentGroupDao.getStudentGroups(studentId)
+    fun getStudentGroups(studentId: Int): LiveData<List<Group>> {
+        return studentGroupDao.getStudentGroups(studentId)
     }
 }

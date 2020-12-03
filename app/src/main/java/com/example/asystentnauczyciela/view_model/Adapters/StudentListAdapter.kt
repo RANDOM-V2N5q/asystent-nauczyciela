@@ -6,9 +6,11 @@ import android.view.ViewGroup
 import android.widget.Button
 import android.widget.TextView
 import androidx.lifecycle.LiveData
+import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import com.example.asystentnauczyciela.R
 import com.example.asystentnauczyciela.model.Student
+import com.example.asystentnauczyciela.view.StudentsFragmentDirections
 import com.example.asystentnauczyciela.view_model.AllStudentsViewModel
 
 class StudentListAdapter(var students: LiveData<List<Student>>, var studentViewModel: AllStudentsViewModel): RecyclerView.Adapter<StudentListAdapter.StudentHolder>() {
@@ -28,6 +30,10 @@ class StudentListAdapter(var students: LiveData<List<Student>>, var studentViewM
         firstName.text = students.value?.get(position)?.firstName.toString()
         lastName.text = students.value?.get(position)?.lastName.toString()
         deleteButton.setOnClickListener { studentViewModel.deleteStudent(students.value?.get(position)!!) }
+        holder.itemView.setOnClickListener {
+            val action = StudentsFragmentDirections.actionAllStudentsFragmentToStudentGroupsFragment(students.value?.get(position)?.id!!)
+            holder.itemView.findNavController().navigate(action)
+        }
     }
 
     override fun getItemCount(): Int {

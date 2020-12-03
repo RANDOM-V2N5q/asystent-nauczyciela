@@ -5,6 +5,7 @@ import androidx.room.Dao
 import androidx.room.Delete
 import androidx.room.Insert
 import androidx.room.Query
+import com.example.asystentnauczyciela.model.Group
 import com.example.asystentnauczyciela.model.Student
 import com.example.asystentnauczyciela.model.StudentGroup
 
@@ -21,7 +22,7 @@ interface StudentGroupDao {
     fun getStudentsInGroup(groupId: Int): LiveData<List<Student>>
 
     @Query("SELECT * FROM student_group_table join group_table on student_group_table.group_id = group_table.id WHERE student_id = :studentId")
-    fun  getStudentGroups(studentId: Int): LiveData<List<StudentGroup>>
+    fun  getStudentGroups(studentId: Int): LiveData<List<Group>>
 
     @Query("DELETE FROM student_group_table WHERE student_id = :studentId AND group_id = :groupId")
     suspend fun deleteStudentGroupQ(studentId: Int, groupId: Int)
