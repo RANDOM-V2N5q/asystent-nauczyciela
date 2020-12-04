@@ -77,7 +77,7 @@ class AddStudentToGroupFragment : Fragment() {
 
     private fun addSelectedStudent() {
         addStudentToGroupViewModel.addSelectedStudents(args.groupId)
-        findNavController().navigate(R.id.action_addStudentToGroupFragment_to_studentsInGroupFragment)
+        findNavController().popBackStack()
     }
 
     companion object {

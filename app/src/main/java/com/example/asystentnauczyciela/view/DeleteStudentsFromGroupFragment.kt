@@ -75,7 +75,7 @@ class DeleteStudentsFromGroupFragment : Fragment() {
 
     private fun deleteStudentFromGroup() {
         viewModel.deleteSelectedStudents(args.groupId)
-        findNavController().navigate(R.id.action_deleteStudentsFromGroupFragment_to_studentsInGroupFragment)
+        findNavController().popBackStack()
     }
 
     companion object {

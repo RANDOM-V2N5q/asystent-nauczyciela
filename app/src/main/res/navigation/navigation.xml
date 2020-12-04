@@ -124,7 +124,11 @@
             android:defaultValue="-1" />
         <action
             android:id="@+id/action_addStudentToGroupFragment_to_studentsInGroupFragment"
-            app:destination="@id/studentsInGroupFragment" />
+            app:destination="@id/studentsInGroupFragment"
+            app:enterAnim="@anim/from_right"
+            app:exitAnim="@anim/to_left"
+            app:popEnterAnim="@anim/from_left"
+            app:popExitAnim="@anim/to_right" />
     </fragment>
     <fragment
         android:id="@+id/deleteStudentsFromGroupFragment"
@@ -137,6 +141,10 @@
             android:defaultValue="-1" />
         <action
             android:id="@+id/action_deleteStudentsFromGroupFragment_to_studentsInGroupFragment"
-            app:destination="@id/studentsInGroupFragment" />
+            app:destination="@id/studentsInGroupFragment"
+            app:enterAnim="@anim/from_right"
+            app:exitAnim="@anim/to_left"
+            app:popEnterAnim="@anim/from_left"
+            app:popExitAnim="@anim/to_right" />
     </fragment>
 </navigation>
