@@ -40,58 +40,15 @@
             android:layout_height="wrap_content"
 
             android:layout_marginTop="24dp"
-            android:layout_marginBottom="24dp"
 
             android:background="#00FFFFFF"
             android:contentDescription="@string/add_group"
             android:src="@drawable/ic_baseline_add_circle_48"
 
-            app:layout_constraintBottom_toTopOf="@+id/constraintLayoutGroupInput"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintHorizontal_bias="0.5" />
-
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:id="@+id/constraintLayoutGroupInput"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-
-            android:visibility="gone"
-
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintHorizontal_bias="0.5">
-
-            <Button
-                android:id="@+id/buttonAddGroup"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-
-                android:text="@string/add"
-
-                app:layout_constraintBottom_toBottomOf="@+id/editTextGroupName"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toEndOf="@+id/editTextGroupName"
-                app:layout_constraintTop_toTopOf="@+id/editTextGroupName" />
-
-            <EditText
-                android:id="@+id/editTextGroupName"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-
-                android:layout_marginStart="24dp"
-                android:layout_marginBottom="24dp"
-                android:ems="10"
-
-                android:hint="@string/group_name"
-                android:importantForAutofill="no"
-                android:inputType="text"
-
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintStart_toStartOf="parent" />
-        </androidx.constraintlayout.widget.ConstraintLayout>
+            app:layout_constraintTop_toTopOf="parent" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

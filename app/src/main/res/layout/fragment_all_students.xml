@@ -43,64 +43,9 @@
             android:contentDescription="@string/add_student"
             android:src="@drawable/ic_baseline_add_circle_48"
 
-            app:layout_constraintBottom_toTopOf="@+id/constraintLayoutStudentInput"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
-
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:id="@+id/constraintLayoutStudentInput"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-
-            android:visibility="gone"
-
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent">
-
-            <Button
-                android:id="@+id/buttonAddStudent"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-
-                android:text="@string/add"
-
-                app:layout_constraintBottom_toTopOf="@+id/editTextLastName"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toEndOf="@+id/editTextFirstName"
-                app:layout_constraintTop_toBottomOf="@+id/editTextFirstName" />
-
-            <EditText
-                android:id="@+id/editTextLastName"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-
-                android:layout_marginStart="24dp"
-                android:layout_marginBottom="24dp"
-                android:ems="10"
-                android:hint="@string/last_name"
-                android:importantForAutofill="no"
-                android:inputType="textPersonName"
-
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintStart_toStartOf="parent" />
-
-            <EditText
-                android:id="@+id/editTextFirstName"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-
-                android:layout_marginStart="24dp"
-                android:layout_marginBottom="24dp"
-                android:ems="10"
-                android:hint="@string/first_name"
-                android:importantForAutofill="no"
-                android:inputType="text"
-
-                app:layout_constraintBottom_toTopOf="@+id/editTextLastName"
-                app:layout_constraintStart_toStartOf="parent" />
-        </androidx.constraintlayout.widget.ConstraintLayout>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

@@ -40,50 +40,10 @@
             android:contentDescription="@string/add_mark"
             android:src="@drawable/ic_baseline_add_circle_48"
 
-            app:layout_constraintBottom_toTopOf="@+id/constraintLayoutMarkInput"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:id="@+id/constraintLayoutMarkInput"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-
-            android:visibility="gone"
-
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent">
-
-            <EditText
-                android:id="@+id/editTextMarkValue"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-
-                android:layout_marginStart="24dp"
-                android:layout_marginBottom="24dp"
-                android:ems="10"
-                android:hint="@string/mark"
-                android:importantForAutofill="no"
-                android:inputType="textShortMessage|numberDecimal"
-
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintStart_toStartOf="parent" />
-
-            <Button
-                android:id="@+id/buttonAddMark"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-
-                android:layout_marginStart="45dp"
-                android:text="@string/add"
-
-                app:layout_constraintBottom_toBottomOf="@+id/editTextMarkValue"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toEndOf="@+id/editTextMarkValue"
-                app:layout_constraintTop_toTopOf="@+id/editTextMarkValue" />
-        </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -19,6 +19,9 @@ import com.example.asystentnauczyciela.R
 import com.example.asystentnauczyciela.model.Student
 import com.example.asystentnauczyciela.view_model.Adapters.StudentListAdapter
 import com.example.asystentnauczyciela.view_model.AllStudentsViewModel
+import com.google.android.material.bottomsheet.BottomSheetDialog
+import kotlinx.android.synthetic.main.bottom_sheet_add_student.view.*
+import kotlinx.android.synthetic.main.fragment_all_groups.*
 import kotlinx.android.synthetic.main.fragment_all_students.*
 
 // TODO: Rename parameter arguments, choose names that match
@@ -74,35 +77,31 @@ class StudentsFragment : Fragment() {
             addItemDecoration(DividerItemDecoration(this.context, DividerItemDecoration.VERTICAL))
         }
 
-        buttonAddStudent.setOnClickListener { addStudent() }
+        val bottomSheetDialog = BottomSheetDialog(requireContext())
+        val bottomSheetView = layoutInflater.inflate(R.layout.bottom_sheet_add_student, null)
+        bottomSheetDialog.setContentView(bottomSheetView)
+
+        bottomSheetView.buttonAddStudent.setOnClickListener {
+            val firstName = bottomSheetView.editTextFirstName.text.toString()
+            val lastName = bottomSheetView.editTextLastName.text.toString()
+            bottomSheetView.editTextFirstName.setText("")
+            bottomSheetView.editTextLastName.setText("")
+
+            if(inputValidation(firstName, lastName)) {
+                val student = Student(0, firstName, lastName)
+                studentViewModel.addStudent(student)
+                Toast.makeText(requireContext(), "Student dodany", Toast.LENGTH_LONG).show()
+            }
+        }
+
         imageButtonShowStudentInput.setOnClickListener {
-            TransitionManager.beginDelayedTransition(view.findViewById(R.id.constraintLayoutAllStudents), AutoTransition().setDuration(100))
-            if(view.findViewById<ConstraintLayout>(R.id.constraintLayoutStudentInput).visibility == View.GONE) {
-                view.findViewById<ConstraintLayout>(R.id.constraintLayoutStudentInput).visibility = View.VISIBLE
-                view.findViewById<ImageButton>(R.id.imageButtonShowStudentInput).setImageResource(R.drawable.ic_baseline_keyboard_arrow_down_48)
+            if(bottomSheetDialog.isShowing) {
+                bottomSheetDialog.hide()
             }
             else {
-                view.findViewById<ConstraintLayout>(R.id.constraintLayoutStudentInput).visibility = View.GONE
-                view.findViewById<ImageButton>(R.id.imageButtonShowStudentInput).setImageResource(R.drawable.ic_baseline_add_circle_48)
+                bottomSheetDialog.show()
             }
         }
-    }
-
-    private fun addStudent() {
-        val firstName = editTextFirstName.text.toString()
-        val lastName = editTextLastName.text.toString()
-        editTextFirstName.setText("")
-        editTextLastName.setText("")
-
-        if(inputValidation(firstName, lastName)) {
-            val student = Student(0, firstName, lastName)
-            studentViewModel.addStudent(student)
-            Toast.makeText(requireContext(), "Student dodany", Toast.LENGTH_LONG).show()
-        }
-
-        TransitionManager.beginDelayedTransition(view?.findViewById(R.id.constraintLayoutAllStudents), AutoTransition().setDuration(100))
-        requireView().findViewById<ConstraintLayout>(R.id.constraintLayoutStudentInput).visibility = View.GONE
-        requireView().findViewById<ImageButton>(R.id.imageButtonShowStudentInput).setImageResource(R.drawable.ic_baseline_add_circle_48)
     }
 
     private fun inputValidation(firstName: String, lastName: String): Boolean {

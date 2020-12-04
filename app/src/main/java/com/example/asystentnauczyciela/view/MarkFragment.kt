@@ -20,6 +20,8 @@ import com.example.asystentnauczyciela.R
 import com.example.asystentnauczyciela.model.Mark
 import com.example.asystentnauczyciela.view_model.Adapters.MarkListAdapter
 import com.example.asystentnauczyciela.view_model.MarkViewModel
+import com.google.android.material.bottomsheet.BottomSheetDialog
+import kotlinx.android.synthetic.main.bottom_sheet_add_mark.view.*
 import kotlinx.android.synthetic.main.fragment_mark.*
 import java.time.LocalDateTime
 import java.util.*
@@ -80,29 +82,26 @@ class MarkFragment : Fragment() {
             addItemDecoration(DividerItemDecoration(this.context, DividerItemDecoration.VERTICAL))
         }
 
-        buttonAddMark.setOnClickListener { addMark() }
+        val bottomSheetDialog = BottomSheetDialog(requireContext())
+        val bottomSheetView = layoutInflater.inflate(R.layout.bottom_sheet_add_mark, null)
+        bottomSheetDialog.setContentView(bottomSheetView)
+
+        bottomSheetView.buttonAddMark.setOnClickListener {
+            if(!TextUtils.isEmpty(bottomSheetView.editTextMarkValue.toString())) {
+                val mark = Mark(0, args.studentId, args.groupId, bottomSheetView.editTextMarkValue.text.toString().toInt(), Date())
+                viewModel.addMark(mark)
+                bottomSheetView.editTextMarkValue.setText("")
+            }
+        }
+
         imageButtonShowMarkInput.setOnClickListener {
-            TransitionManager.beginDelayedTransition(view.findViewById(R.id.constraintLayoutMarks), AutoTransition().setDuration(100))
-            if(view.findViewById<ConstraintLayout>(R.id.constraintLayoutMarkInput).visibility == View.GONE) {
-                view.findViewById<ConstraintLayout>(R.id.constraintLayoutMarkInput).visibility = View.VISIBLE
-                view.findViewById<ImageButton>(R.id.imageButtonShowMarkInput).setImageResource(R.drawable.ic_baseline_keyboard_arrow_down_48)
+            if(bottomSheetDialog.isShowing) {
+                bottomSheetDialog.hide()
             }
             else {
-                view.findViewById<ConstraintLayout>(R.id.constraintLayoutMarkInput).visibility = View.GONE
-                view.findViewById<ImageButton>(R.id.imageButtonShowMarkInput).setImageResource(R.drawable.ic_baseline_add_circle_48)
+                bottomSheetDialog.show()
             }
         }
-    }
-
-    private fun addMark() {
-        if(!TextUtils.isEmpty(editTextMarkValue.toString())) {
-            val mark = Mark(0, args.studentId, args.groupId, editTextMarkValue.text.toString().toInt(), Date())
-            viewModel.addMark(mark)
-        }
-
-        TransitionManager.beginDelayedTransition(view?.findViewById(R.id.constraintLayoutMarks), AutoTransition().setDuration(100))
-        requireView().findViewById<ConstraintLayout>(R.id.constraintLayoutMarkInput).visibility = View.GONE
-        requireView().findViewById<ImageButton>(R.id.imageButtonShowMarkInput).setImageResource(R.drawable.ic_baseline_add_circle_48)
     }
 
     companion object {

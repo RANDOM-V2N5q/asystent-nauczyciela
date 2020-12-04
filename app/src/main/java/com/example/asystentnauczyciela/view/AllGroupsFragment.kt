@@ -19,6 +19,8 @@ import com.example.asystentnauczyciela.R
 import com.example.asystentnauczyciela.model.Group
 import com.example.asystentnauczyciela.view_model.Adapters.GroupListAdapter
 import com.example.asystentnauczyciela.view_model.AllGroupsViewModel
+import com.google.android.material.bottomsheet.BottomSheetDialog
+import kotlinx.android.synthetic.main.bottom_sheet_add_group.view.*
 import kotlinx.android.synthetic.main.fragment_all_groups.*
 
 // TODO: Rename parameter arguments, choose names that match
@@ -74,33 +76,29 @@ class GroupFragment : Fragment() {
             addItemDecoration(DividerItemDecoration(this.context, DividerItemDecoration.VERTICAL))
         }
 
-        buttonAddGroup.setOnClickListener { addGroup() }
+        val bottomSheetDialog = BottomSheetDialog(requireContext())
+        val bottomSheetView = layoutInflater.inflate(R.layout.bottom_sheet_add_group, null)
+        bottomSheetDialog.setContentView(bottomSheetView)
+
+        bottomSheetView.buttonAddGroup.setOnClickListener {
+            val groupName = bottomSheetView.editTextGroupName.text.toString()
+            bottomSheetView.editTextGroupName.setText("")
+
+            if(inputValidation(groupName)) {
+                val group = Group(0, groupName)
+                groupViewModel.addGroup(group)
+                Toast.makeText(requireContext(), "Grupa dodana", Toast.LENGTH_LONG).show()
+            }
+        }
+
         imageButtonShowInput.setOnClickListener {
-            TransitionManager.beginDelayedTransition(view.findViewById(R.id.constraintLayoutAllGroups), AutoTransition().setDuration(100))
-            if(view.findViewById<ConstraintLayout>(R.id.constraintLayoutGroupInput).visibility == View.GONE) {
-                view.findViewById<ConstraintLayout>(R.id.constraintLayoutGroupInput).visibility = View.VISIBLE
-                view.findViewById<ImageButton>(R.id.imageButtonShowInput).setImageResource(R.drawable.ic_baseline_keyboard_arrow_down_48)
+            if(bottomSheetDialog.isShowing) {
+                bottomSheetDialog.hide()
             }
             else {
-                view.findViewById<ConstraintLayout>(R.id.constraintLayoutGroupInput).visibility = View.GONE
-                view.findViewById<ImageButton>(R.id.imageButtonShowInput).setImageResource(R.drawable.ic_baseline_add_circle_48)
+                bottomSheetDialog.show()
             }
         }
-    }
-
-    private fun addGroup() {
-        val groupName = editTextGroupName.text.toString()
-        editTextGroupName.setText("")
-
-        if(inputValidation(groupName)) {
-            val group = Group(0, groupName)
-            groupViewModel.addGroup(group)
-            Toast.makeText(requireContext(), "Grupa dodana", Toast.LENGTH_LONG).show()
-        }
-
-        TransitionManager.beginDelayedTransition(view?.findViewById(R.id.constraintLayoutAllGroups))
-        requireView().findViewById<ConstraintLayout>(R.id.constraintLayoutGroupInput).visibility = View.GONE
-        requireView().findViewById<ImageButton>(R.id.imageButtonShowInput).setImageResource(R.drawable.ic_baseline_add_circle_48)
     }
 
     private fun inputValidation(groupName: String): Boolean {
