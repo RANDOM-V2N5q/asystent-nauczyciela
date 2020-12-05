@@ -9,9 +9,11 @@
     <string name="add">Dodaj</string>
     <string name="delete">Usuń</string>
     <string name="temp">Temporary text</string>
+    <string name="temp_num">123</string>
     <string name="delete_group">Usuń grupę</string>
     <string name="delete_student">Usuń studenta</string>
     <string name="delete_student_from_group">Usuń studenta z grupy</string>
+    <string name="delete_mark">Usuń ocenę</string>
     <string name="add_group">Dodaj grupę</string>
     <string name="add_student">Dodaj studenta</string>
     <string name="add_student_to_group">Dodaj studenta do grupy</string>
@@ -23,4 +25,5 @@
     <string name="students_in_group">Studenci w grupie</string>
     <string name="student_marks">Oceny studenta</string>
     <string name="student_groups">Grupy studenta</string>
+    <string name="note">Uwaga</string>
 </resources>

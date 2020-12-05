@@ -28,5 +28,6 @@ data class Mark(
     var student_id: Int,
     var group_id: Int,
     var value: Int,
-    var date: Date
+    var date: Date,
+    var note: String
 )

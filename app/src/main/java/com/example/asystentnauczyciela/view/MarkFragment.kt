@@ -88,9 +88,10 @@ class MarkFragment : Fragment() {
 
         bottomSheetView.buttonAddMark.setOnClickListener {
             if(!TextUtils.isEmpty(bottomSheetView.editTextMarkValue.toString())) {
-                val mark = Mark(0, args.studentId, args.groupId, bottomSheetView.editTextMarkValue.text.toString().toInt(), Date())
+                val mark = Mark(0, args.studentId, args.groupId, bottomSheetView.editTextMarkValue.text.toString().toInt(), Date(), bottomSheetView.editTextMarkNote.text.toString())
                 viewModel.addMark(mark)
                 bottomSheetView.editTextMarkValue.setText("")
+                bottomSheetView.editTextMarkNote.setText("")
             }
         }
 
