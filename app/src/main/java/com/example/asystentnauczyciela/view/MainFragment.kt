@@ -46,6 +46,7 @@ class MainFragment : Fragment() {
 
         buttonGroupsList.setOnClickListener{ view->view.findNavController().navigate(R.id.action_mainFragment_to_AllGroupsFragment) }
         buttonStudentsList.setOnClickListener{ view->view.findNavController().navigate(R.id.action_mainFragment_to_AllStudentsFragment) }
+        buttonReport.setOnClickListener{ view->view.findNavController().navigate(R.id.action_mainFragment_to_reportFragment) }
     }
 
     companion object {

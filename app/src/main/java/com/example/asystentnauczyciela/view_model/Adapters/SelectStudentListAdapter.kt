@@ -30,12 +30,12 @@ class SelectStudentListAdapter(var students: LiveData<List<Student>>, var viewMo
         lastName.text = students.value?.get(position)?.lastName.toString()
 
         holder.itemView.setOnClickListener {
-            if(viewModel.isSelected(students.value?.get(position)?.id!!)) {
-                viewModel.deselect(students.value?.get(position)?.id!!)
+            if(viewModel.isSelected(students.value?.get(position)?.studentId!!)) {
+                viewModel.deselect(students.value?.get(position)?.studentId!!)
                 check.visibility = View.INVISIBLE
             }
             else {
-                viewModel.select(students.value?.get(position)?.id!!)
+                viewModel.select(students.value?.get(position)?.studentId!!)
                 check.visibility = View.VISIBLE
             }
         }

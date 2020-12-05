@@ -3,7 +3,6 @@ package com.example.asystentnauczyciela.view_model.Adapters
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Button
 import android.widget.ImageButton
 import android.widget.TextView
 import androidx.lifecycle.LiveData
@@ -32,7 +31,7 @@ class StudentListAdapter(var students: LiveData<List<Student>>, var studentViewM
         lastName.text = students.value?.get(position)?.lastName.toString()
         deleteButton.setOnClickListener { studentViewModel.deleteStudent(students.value?.get(position)!!) }
         holder.itemView.setOnClickListener {
-            val action = StudentsFragmentDirections.actionAllStudentsFragmentToStudentGroupsFragment(students.value?.get(position)?.id!!)
+            val action = StudentsFragmentDirections.actionAllStudentsFragmentToStudentGroupsFragment(students.value?.get(position)?.studentId!!)
             holder.itemView.findNavController().navigate(action)
         }
     }

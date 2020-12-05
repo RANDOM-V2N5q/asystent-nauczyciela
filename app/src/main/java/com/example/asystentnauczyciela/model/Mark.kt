@@ -10,7 +10,7 @@ import java.util.Date
     foreignKeys = [
         ForeignKey(
             entity = Student::class,
-            parentColumns = ["id"],
+            parentColumns = ["studentId"],
             childColumns = ["student_id"],
             onDelete = CASCADE
         ),

@@ -1,7 +1,6 @@
 package com.example.asystentnauczyciela.view_model.Adapters
 
 import android.view.LayoutInflater
-import android.view.TextureView
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
@@ -29,7 +28,7 @@ class StudentInGroupListAdapter(var students: LiveData<List<Student>>, var group
         lastName.text = students.value?.get(position)?.lastName.toString()
 
         holder.itemView.setOnClickListener {
-            val action = StudentsInGroupFragmentDirections.actionStudentsInGroupFragmentToMarkFragment(groupId, students.value?.get(position)?.id!!)
+            val action = StudentsInGroupFragmentDirections.actionStudentsInGroupFragmentToMarkFragment(groupId, students.value?.get(position)?.studentId!!)
             holder.itemView.findNavController().navigate(action)
         }
     }
