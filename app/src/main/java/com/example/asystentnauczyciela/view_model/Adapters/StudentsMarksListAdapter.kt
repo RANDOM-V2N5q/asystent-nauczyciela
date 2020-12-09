@@ -25,7 +25,7 @@ class StudentsMarksListAdapter(var marks: LiveData<List<StudentMarks>>): Recycle
         val note = holder.itemView.findViewById<TextView>(R.id.textViewReportMarkNote)
         val value = holder.itemView.findViewById<TextView>(R.id.textViewReportMarkValue)
 
-        studentName.text = marks.value?.get(position)?.student?.firstName + marks.value?.get(position)?.student?.lastName
+        studentName.text = marks.value?.get(position)?.student?.firstName + " " + marks.value?.get(position)?.student?.lastName
         date.text = SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(marks.value?.get(position)?.mark?.date)
         note.text = marks.value?.get(position)?.mark?.note ?: ""
         value.text = marks.value?.get(position)?.mark?.value.toString()

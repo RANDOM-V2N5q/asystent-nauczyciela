@@ -40,6 +40,12 @@ class ReportFragment : Fragment() {
             param2 = it.getString(ARG_PARAM2)
         }
 
+
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
         viewModel = ViewModelProvider(requireActivity()).get(ReportViewModel::class.java)
 
         val time = Calendar.getInstance()
@@ -65,10 +71,6 @@ class ReportFragment : Fragment() {
         viewModel.marks.observe(viewLifecycleOwner, {
             myAdapter.notifyDataSetChanged()
         })
-    }
-
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
 
         recyclerView = recyclerViewStudentsMarks.apply {
             this.layoutManager = myLayoutManager
